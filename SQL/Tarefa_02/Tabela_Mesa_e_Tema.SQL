@@ -59,9 +59,9 @@ GO
 
 INSERT INTO Tema (Descricao) VALUES 
 ('Nenhum'),
-('JaponÃªs'),
+('Japones'),
 ('Italiano'),
-('FrancÃªs'),
+('Frances'),
 ('Mexicano')
 GO
 INSERT INTO TipoMesa (Descricao) VALUES
