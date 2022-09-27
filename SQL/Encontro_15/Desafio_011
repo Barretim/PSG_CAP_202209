@@ -1,0 +1,26 @@
+--Desafio 011 – Faça um programa que leia o salário de um funcionário, e mostre seu novo salário,
+--com 15% de aumento.
+
+--DECLARE @SALARIO FLOAT
+--DECLARE @AUMENTO FLOAT
+--SET @SALARIO = 1500
+--SET @AUMENTO = (@SALARIO * 0.15)
+--PRINT @SALARIO + @AUMENTO
+--GO
+
+CREATE PROCEDURE SP_Desafio_11
+@SALARIO FLOAT
+AS
+BEGIN
+	DECLARE @AUMENTO FLOAT
+	DECLARE @NOVOSALARIO FLOAT
+	SET @AUMENTO = (@SALARIO * 0.15)
+	SET @NOVOSALARIO = @SALARIO + @AUMENTO
+	PRINT ('Novo salario = ' + CONVERT(NVARCHAR(MAX), @NOVOSALARIO))
+END
+GO
+
+EXEC dbo.SP_Desafio_11 1500
+GO
+
+DROP PROCEDURE SP_Desafio_11
