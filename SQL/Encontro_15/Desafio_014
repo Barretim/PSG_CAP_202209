@@ -1,0 +1,50 @@
+--Desafio 014 – um professor quer armazenas o nome dos seus alunos para realizar algumas tarefas.
+--Faça um programa que ajude ele, lendo o nome deles e escrevendo todos os nomes
+--armazenados.
+
+--DECLARE @NOMES TABLE(
+--	NOME VARCHAR(MAX) NOT NULL
+--)
+
+--INSERT INTO @NOMES
+--VALUES 
+--('Paula'),
+--('Carla'),
+--('Marcelo'),
+--('Gabriel'),
+--('Robertto'),
+--('Beatriz'),
+--('Ted'),
+--('Vava'),
+--('Caua'),
+--('Julia')
+--SELECT * FROM @NOMES
+
+CREATE PROCEDURE SP_Desafio014
+AS
+BEGIN
+	DECLARE @NOMES TABLE(
+		NOME VARCHAR(MAX) NOT NULL
+	)
+
+	INSERT INTO @NOMES
+	VALUES
+	('Paula'),
+	('Carla'),
+	('Marcelo'),
+	('Gabriel'),
+	('Robertto'),
+	('Beatriz'),
+	('Ted'),
+	('Vava'),
+	('Caua'),
+	('Julia')
+
+	SELECT * FROM @NOMES
+END
+GO
+
+EXEC dbo.SP_Desafio014
+GO
+
+DROP PROCEDURE SP_Desafio014
