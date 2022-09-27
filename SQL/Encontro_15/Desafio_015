@@ -1,0 +1,53 @@
+--Desafio 015 – o mesmo professor quer agora, além de exibir, ordenar a lista. Faça um programa
+--que ajude ele, lendo o nome deles e escrevendo todos os nomes armazenados, de forma
+--ordenada.
+
+--DECLARE @NOMES TABLE(
+--	NOME VARCHAR(MAX) NOT NULL
+--)
+
+--INSERT INTO @NOMES
+--VALUES 
+--('Paula'),
+--('Carla'),
+--('Marcelo'),
+--('Gabriel'),
+--('Robertto'),
+--('Beatriz'),
+--('Ted'),
+--('Vava'),
+--('Caua'),
+--('Julia')
+--SELECT * FROM @NOMES
+--ORDER BY NOME
+--GO
+
+CREATE PROCEDURE SP_Desafio015
+AS
+BEGIN
+	DECLARE @NOMES TABLE(
+		NOME VARCHAR(MAX) NOT NULL
+	)
+
+	INSERT INTO @NOMES
+	VALUES
+	('Paula'),
+	('Carla'),
+	('Marcelo'),
+	('Gabriel'),
+	('Robertto'),
+	('Beatriz'),
+	('Ted'),
+	('Vava'),
+	('Caua'),
+	('Julia')
+
+	SELECT * FROM @NOMES
+	ORDER BY NOME
+END
+GO
+
+EXEC dbo.SP_Desafio015
+GO
+
+DROP PROCEDURE SP_Desafio015
