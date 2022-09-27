@@ -1,0 +1,22 @@
+--Desafio 012 – escreva um programa que converta uma temperatura digitada em graus celsius
+--para fahrenheit.
+
+--DECLARE @GRAUSCELCIUS FLOAT
+--DECLARE @GRAUSFAHRENHEIT FLOAT
+--SET @GRAUSCELCIUS = 40.00
+--SET @GRAUSFAHRENHEIT = @GRAUSCELCIUS * 1.8 + 32
+--PRINT ('Graus em Fahrenheit = ' + CONVERT(VARCHAR(MAX), @GRAUSFAHRENHEIT ))
+--GO
+
+CREATE PROCEDURE SP_Desafio012
+@GRAUSCELCIUS FLOAT
+AS
+BEGIN
+	DECLARE @GRAUSFAHRENHEIT FLOAT
+	SET @GRAUSFAHRENHEIT = @GRAUSCELCIUS * 1.8 + 32
+	PRINT ('Nova temperatura em Fahrenheit é ' + CONVERT(VARCHAR(MAX), @GRAUSFAHRENHEIT ))
+END
+GO
+
+EXEC dbo.SP_Desafio012 40
+GO
