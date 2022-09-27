@@ -1,0 +1,33 @@
+--Desafio 013 – Escreva um programa que pergunte a quantidade de km percorridos por um carro
+--alugado, e a quantidade de dias pelos quais ele foi alugado. Calcule o preço a pagar, sabendo
+--que o carro custa R$ 60,00 por dia e R$ 0,15 por km rodado.
+.
+
+--DECLARE @DIAALUGADO INT
+--DECLARE @VALORCARRO FLOAT
+--DECLARE @KMRODADO FLOAT
+--DECLARE @TOTALAPAGAR VARCHAR(MAX)
+--SET @DIAALUGADO = 25
+--SET @VALORCARRO = 60.00
+--SET @KMRODADO = 1000 * 0.15
+--SET @TOTALAPAGAR = (@DIAALUGADO * @VALORCARRO) + @KMRODADO
+--PRINT 'Total a pagar é = ' + @TOTALAPAGAR + 'R$'
+--GO
+
+CREATE PROCEDURE SP_Desafio013
+@DIAALUGADO INT,
+@KMPERCORRIDO INT
+AS
+BEGIN
+	DECLARE @VALORCARRO FLOAT
+	DECLARE @TOTALAPAGAR FLOAT
+	SET @VALORCARRO = 60.00
+	SET @TOTALAPAGAR = (@VALORCARRO * @DIAALUGADO) + (@KMPERCORRIDO * 0.15)
+	PRINT 'Total a pagar é = ' + ( CONVERT (VARCHAR(MAX), @TOTALAPAGAR )) + 'R$'
+END
+GO
+
+EXEC dbo.SP_Desafio013 10, 100
+GO
+
+DROP PROCEDURE SP_Desafio013
