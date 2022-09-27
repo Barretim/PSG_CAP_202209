@@ -1,0 +1,54 @@
+--Desafio 016 – o mesmo professor quer sortear um dos seus alunos para apagar o quadro. Faça um
+--programa que ajude ele, lendo o nome deles e escrevendo o nome do escolhido.
+
+--DECLARE @NOMES TABLE(
+--	NOME VARCHAR(MAX) NOT NULL
+--)
+
+--INSERT INTO @NOMES
+--VALUES 
+--('Paula'),
+--('Carla'),
+--('Marcelo'),
+--('Gabriel'),
+--('Robertto'),
+--('Beatriz'),
+--('Ted'),
+--('Vava'),
+--('Caua'),
+--('Julia')
+--SELECT * FROM @NOMES
+--ORDER BY NOME
+--SELECT FLOOR( RAND()*(10-1+1))+1 Valor_Aleatorio
+--GO
+
+CREATE PROCEDURE SP_Desafio016
+AS
+BEGIN
+	DECLARE @NOMES TABLE(
+		NOME VARCHAR(MAX) NOT NULL
+	)
+
+	INSERT INTO @NOMES
+	VALUES
+	('Paula'),
+	('Carla'),
+	('Marcelo'),
+	('Gabriel'),
+	('Robertto'),
+	('Beatriz'),
+	('Ted'),
+	('Vava'),
+	('Caua'),
+	('Julia')
+
+	SELECT * FROM @NOMES
+	ORDER BY NOME
+	SELECT FLOOR( RAND()*(10-1+1))+1 Valor_Aleatorio
+END
+GO
+
+EXEC dbo.SP_Desafio016
+GO
+
+DROP PROCEDURE SP_Desafio016
