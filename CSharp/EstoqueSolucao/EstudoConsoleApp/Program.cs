@@ -2,6 +2,7 @@
 
 using System;
 using EstudoConsoleApp.Aulas;
+using EstudoConsoleApp.Desafios;
 
 public class Program
 {
@@ -13,7 +14,18 @@ public class Program
         // ExecutarExemplo02();
         //ExecutarExemplo03();
         //ExecutarExemplo04();
-        ExecutarExemplo05();
+        //ExecutarExemplo05();
+
+        //Desafio01.Executar();
+        //Desafio02.Executar();
+        //Desafio03.Executar();
+        //Desafio04.Executar();
+        //Desafio05.Executar();
+        //Desafio06.Executar();
+        //Desafio07.Executar();
+        //Desafio08.Executar();
+        //Desafio09.Executar();
+        //Desafio10.Executar();
 
     }
 
