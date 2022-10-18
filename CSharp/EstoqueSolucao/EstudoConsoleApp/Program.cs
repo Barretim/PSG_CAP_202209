@@ -11,11 +11,11 @@ public class Program
     public static void Main(string[] args)
     {
         //ExecutarExemplo01();
-        // ExecutarExemplo02();
+        //ExecutarExemplo02();
         //ExecutarExemplo03();
         //ExecutarExemplo04();
         //ExecutarExemplo05();
-
+        //-----------------------------------------------------------
         //Desafio01.Executar();
         //Desafio02.Executar();
         //Desafio03.Executar();
@@ -26,10 +26,14 @@ public class Program
         //Desafio08.Executar();
         //Desafio09.Executar();
         //Desafio10.Executar();
-
+        //--------------------------------------------------------------
         //Desafio01v2.Executar();
         //Desafio02v2.Executar();
         //Desafio03v2.Executar();
+        //Desafio04v2.Executar();
+        //Desafio05v2.Executar();
+        //Desafio06v2.Executar();
+        Desafio07v2.Executar();
 
 
 

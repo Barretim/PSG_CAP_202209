@@ -14,7 +14,7 @@ namespace EstudoConsoleApp.Desafios
             Console.WriteLine("informe o dia: ");
             if (Int32.TryParse(Console.ReadLine(), out dia) == false)
             {
-                Console.WriteLine("informe um dia valido.");
+                Console.WriteLine("informe um dia valido. ");
                 return;
             }
             Console.WriteLine("informe o mês: ");

@@ -13,7 +13,7 @@ namespace EstudoConsoleApp.Desafios
         public static void Executar()
         {
             int n1, n2;
-            Console.WriteLine("Informe o primeiro numero: ");
+            Console.WriteLine("Informe o primeiro numero:");
             if (Int32.TryParse(Console.ReadLine(), out n1) == false)
             {
                 Console.WriteLine("por favor informe um valor.");

@@ -19,7 +19,7 @@ namespace EstudoConsoleApp.Desafios
                 Console.WriteLine("por favor digite um nome.");
                 return;
             }
-            else if (Regex.IsMatch(nome, "[a-z]+$") == false)
+            else if (Regex.IsMatch(nome,"[a-z]+$") == false)
             {
                 Console.WriteLine("Digite apenas letras.");
                 return;
