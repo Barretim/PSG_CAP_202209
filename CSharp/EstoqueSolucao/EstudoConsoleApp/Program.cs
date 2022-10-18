@@ -26,14 +26,24 @@ public class Program
         //Desafio08.Executar();
         //Desafio09.Executar();
         //Desafio10.Executar();
-        //--------------------------------------------------------------
+        //-----------------------------------------------------------
         //Desafio01v2.Executar();
         //Desafio02v2.Executar();
         //Desafio03v2.Executar();
         //Desafio04v2.Executar();
         //Desafio05v2.Executar();
         //Desafio06v2.Executar();
-        Desafio07v2.Executar();
+        //Desafio07v2.Executar();
+        //Desafio08v2.Executar();
+        //Desafio09v2.Executar();
+        //Desafio10v2.Executar();
+        //-----------------------------------------------------------
+        //Desafio11.Executar();
+        //Desafio12.Executar();
+        //Desafio13.Executar();
+        Desafio14.Executar();
+
+
 
 
 
