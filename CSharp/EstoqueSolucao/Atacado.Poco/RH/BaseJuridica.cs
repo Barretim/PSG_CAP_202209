@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstoqueApp.Model.RH
+namespace Atacado.Poco.RH
 {
     public abstract class BaseJuridica : BasePessoa
     {
@@ -24,16 +24,6 @@ namespace EstoqueApp.Model.RH
 
         public BaseJuridica() : base()  
         {
-        }
-
-        public BaseJuridica(int id, string cnpj = null, string inscricaoEstadual = null, DateTime fundacao = default, string nomeFantasia = null, string razaoSocial = null, string emailCorporativo = null) : base(id)
-        {
-            this.cnpj = cnpj;
-            this.inscricaoEstadual = inscricaoEstadual;
-            this.fundacao = fundacao;
-            this.nomeFantasia = nomeFantasia;
-            this.razaoSocial = razaoSocial;
-            this.emailCorporativo = emailCorporativo;
         }
 
 

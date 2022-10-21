@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstoqueApp.Model.RH
+namespace Atacado.Dominio.RH
 {
     public class Parceiro : BaseJuridica
     {
@@ -20,13 +20,11 @@ namespace EstoqueApp.Model.RH
         {
         }
 
-        public Parceiro(int id, string cnpj = null, string inscricaoEstadual = null, DateTime fundacao = default, string nomeFantasia = null, string razaoSocial = null, string emailCorporativo = null, double desepenho = 0, double comissao = 0, string setor = null) : base(id, cnpj, inscricaoEstadual, fundacao, nomeFantasia, razaoSocial, emailCorporativo)
+        public Parceiro(double desepenho, double comissao, string setor)
         {
             this.desepenho = desepenho;
             this.comissao = comissao;
             this.setor = setor;
         }
-
-       
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EstoqueApp.Model.RH
+namespace Atacado.Dominio.RH
 {
     public class Usuario
     {
@@ -30,10 +30,5 @@ namespace EstoqueApp.Model.RH
             this.senha = senha;
             this.permissao = permissao;
         }
-
-        private void EditarPerfil() { }
-        private void AlterarSenha() { }
-        private void CriarUsuario() { }
-        private void ApagarUsuario() { }
     }
 }
