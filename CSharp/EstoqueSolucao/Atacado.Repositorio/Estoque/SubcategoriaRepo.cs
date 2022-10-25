@@ -10,24 +10,24 @@ using Atacado.DB.FakeDB.Estoque;
 
 namespace Atacado.Repositorio.Estoque
 {
-    public class CategoriaRepo : BaseRepositorio<Categoria>
+    public class SubcategoriaRepo : BaseRepositorio<Subcategoria>
     {
         private EstoqueContexto contexto;
 
-        public CategoriaRepo()
+        public SubcategoriaRepo()
         {
             this.contexto = new EstoqueContexto();
         }
 
-        public override Categoria Create(Categoria instancia)
+        public override Subcategoria Create(Subcategoria instancia)
         {
-            return this.contexto.AddCategoria(instancia);
+            return this.contexto.AddSubcategoria(instancia);
         }
 
-        public override Categoria Delete(int chave)
+        public override Subcategoria Delete(int chave)
         {
-            Categoria del = this.Read(chave);
-            if (this.contexto.Categorias.Remove(del) == false)
+            Subcategoria del = this.Read(chave);
+            if (this.contexto.Subcategorias.Remove(del) == false)
             {
                 return null;
             }
@@ -37,24 +37,24 @@ namespace Atacado.Repositorio.Estoque
             }
         }
 
-        public override Categoria Delete(Categoria instancia)
+        public override Subcategoria Delete(Subcategoria instancia)
         {
             return this.Delete(instancia.Codigo);
         }
 
-        public override Categoria Read(int chave)
+        public override Subcategoria Read(int chave)
         {
-            return this.contexto.Categorias.SingleOrDefault(cat => cat.Codigo == chave);
+            return this.contexto.Subcategorias.SingleOrDefault(cat => cat.Codigo == chave);
         }
 
-        public override List<Categoria> Read()
+        public override List<Subcategoria> Read()
         {
-            return this.contexto.Categorias;
+            return this.contexto.Subcategorias;
         }
 
-        public override Categoria Update(Categoria instancia)
+        public override Subcategoria Update(Subcategoria instancia)
         {
-            Categoria atu = this.Read(instancia.Codigo);
+            Subcategoria atu = this.Read(instancia.Codigo);
             if (atu == null)
             {
                 return null;

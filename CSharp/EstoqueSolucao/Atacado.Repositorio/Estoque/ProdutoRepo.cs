@@ -4,30 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Atacado.Repositorio.Base;
 using Atacado.Dominio.Estoque;
+using Atacado.Repositorio.Base;
 using Atacado.DB.FakeDB.Estoque;
 
 namespace Atacado.Repositorio.Estoque
 {
-    public class CategoriaRepo : BaseRepositorio<Categoria>
+    public class ProdutoRepo : BaseRepositorio<Produto>
     {
         private EstoqueContexto contexto;
 
-        public CategoriaRepo()
+        public ProdutoRepo()
         {
             this.contexto = new EstoqueContexto();
         }
 
-        public override Categoria Create(Categoria instancia)
+        public override Produto Create(Produto instancia)
         {
-            return this.contexto.AddCategoria(instancia);
+            return this.contexto.AddProduto(instancia);
         }
 
-        public override Categoria Delete(int chave)
+        public override Produto Delete(int chave)
         {
-            Categoria del = this.Read(chave);
-            if (this.contexto.Categorias.Remove(del) == false)
+            Produto del = this.Read(chave);
+            if (this.contexto.Produtos.Remove(del) == false)
             {
                 return null;
             }
@@ -37,24 +37,24 @@ namespace Atacado.Repositorio.Estoque
             }
         }
 
-        public override Categoria Delete(Categoria instancia)
+        public override Produto Delete(Produto instancia)
         {
             return this.Delete(instancia.Codigo);
         }
 
-        public override Categoria Read(int chave)
+        public override Produto Read(int chave)
         {
-            return this.contexto.Categorias.SingleOrDefault(cat => cat.Codigo == chave);
+            return this.contexto.Produtos.SingleOrDefault(cat => cat.Codigo == chave);
         }
 
-        public override List<Categoria> Read()
+        public override List<Produto> Read()
         {
-            return this.contexto.Categorias;
+            return this.contexto.Produtos;
         }
 
-        public override Categoria Update(Categoria instancia)
+        public override Produto Update(Produto instancia)
         {
-            Categoria atu = this.Read(instancia.Codigo);
+            Produto atu = this.Read(instancia.Codigo);
             if (atu == null)
             {
                 return null;

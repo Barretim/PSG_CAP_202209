@@ -22,9 +22,5 @@ namespace Atacado.Dominio.RH
         {
             this.id = id;
         }
-
-        
-
-
     }
 }
