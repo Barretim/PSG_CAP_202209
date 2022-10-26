@@ -8,10 +8,10 @@ namespace Atacado.Dominio.RH
 {
     public abstract class BasePessoa
     {
-        private int id;
-        private Endereco endereco;
-        protected int Id { get => id; set => id = value; }
-        protected Endereco Endereco { get => endereco; set => endereco = value; }
+        protected int id;
+        protected Endereco endereco;
+        public int Id { get => id; set => id = value; }
+        public Endereco Endereco { get => endereco; set => endereco = value; }
 
         public BasePessoa()
         {

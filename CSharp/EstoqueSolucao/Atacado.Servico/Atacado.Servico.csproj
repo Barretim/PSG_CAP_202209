@@ -9,6 +9,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Atacado.DB.FakeDB\Atacado.DB.FakeDB.csproj" />
     <ProjectReference Include="..\Atacado.Dominio\Atacado.Dominio.csproj" />
+    <ProjectReference Include="..\Atacado.Poco\Atacado.Poco.csproj" />
+    <ProjectReference Include="..\Atacado.Repositorio\Atacado.Repositorio.csproj" />
   </ItemGroup>
 
 </Project>

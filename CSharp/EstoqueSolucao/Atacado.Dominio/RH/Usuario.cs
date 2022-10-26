@@ -12,14 +12,14 @@ namespace Atacado.Dominio.RH
         private string login;
         private string senha;
         private string permissao;
-        private Colaborador colaborador;
+        private Parceiro colaborador;
 
 
         public int Id { get => id; set => id = value; }
         public string Login { get => login; set => login = value; }
         public string Senha { get => senha; set => senha = value; }
         public string Permissao { get => permissao; set => permissao = value; }
-        public Colaborador Colaborador { get => colaborador; set => colaborador = value; }
+        public Parceiro Colaborador { get => colaborador; set => colaborador = value; }
         
 
         public Usuario()
