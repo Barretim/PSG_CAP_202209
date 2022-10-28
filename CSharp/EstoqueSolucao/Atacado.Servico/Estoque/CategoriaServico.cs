@@ -16,8 +16,8 @@ namespace Atacado.Servico.Estoque
         private CategoriaRepo repo;
 
         public CategoriaServico() : base()
-        { 
-            this.repo  = new CategoriaRepo();
+        {
+            this.repo = new CategoriaRepo();
         }
 
         public override CategoriaPoco Add(CategoriaPoco poco)
@@ -31,13 +31,33 @@ namespace Atacado.Servico.Estoque
 
         public override List<CategoriaPoco> Browse()
         {
-            List<Categoria> lista = this.repo.Read();
-            List<CategoriaPoco> listaPoco = new List<CategoriaPoco>();
-            foreach (Categoria item in lista)
-            {
-                CategoriaPoco poco = this.ConvertTo(item);
-                listaPoco.Add(poco);
-            }
+            //Modo 1:
+            //List<Categoria> lista = this.repo.Read();
+            //List<CategoriaPoco> listaPoco = new List<CategoriaPoco>();
+            //foreach (Categoria item in lista)
+            //{
+            //    CategoriaPoco poco = this.ConvertTo(item);
+            //    listaPoco.Add(poco);
+            //}
+            //return listaPoco;
+
+
+            //Modo 2:
+            //List<CategoriaPoco> listaPoco = this.repo.Read().Select(cat => new CategoriaPoco(cat.Codigo, cat.Descricao, cat.Ativo, cat.DataInclusao)).ToList();
+            //return listaPoco;
+
+
+            //Modo 3:
+            List<CategoriaPoco> listaPoco = this.repo.Read()
+                .Select(cat => new CategoriaPoco()
+                {
+                    Codigo = cat.Codigo,
+                    Descricao = cat.Descricao,
+                    Ativo = cat.Ativo,
+                    DataInclusao = cat.DataInclusao
+                }
+                )
+                .ToList();
             return listaPoco;
         }
 
@@ -60,6 +80,7 @@ namespace Atacado.Servico.Estoque
 
         public override CategoriaPoco Delete(CategoriaPoco poco)
         {
+
             //outra forma:
             //Categoria del = this.repo.Delete(ConvertTo(poco));
             //CategoriaPoco delPoco = this.ConvertTo(del);
