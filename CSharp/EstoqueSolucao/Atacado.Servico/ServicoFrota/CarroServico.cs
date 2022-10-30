@@ -1,10 +1,11 @@
-﻿using Atacado.Dominio.FrotaAtacado;
+using Atacado.Dominio.FrotaAtacado;
 using Atacado.Poco.FrotaPoco;
 using Atacado.Repositorio.RepFrota;
 using Atacado.Servico.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,19 +32,20 @@ namespace Atacado.Servico.ServicoFrota
         public override List<CarroPoco> Browse()
         {
             List<CarroPoco> listaPoco = this.repo.Read()
-            .Select(cat => new CarroPoco()
+            .Select(car => new CarroPoco()
             {
-                Codigo = cat.Codigo,
-                Ativo = cat.Ativo,
-                DataInclusao = cat.DataInclusao,
-                Chassi = cat.Chassi,
-                Cor = cat.Cor,
-                Marca = cat.Marca,
-                Modelo = cat.Modelo,
-                Placa = cat.Placa,
-                PesoBruto = cat.PesoBruto,
-                PesoLiquido = cat.PesoLiquido,
-                PesoTotal = cat.PesoTotal
+                Codigo = car.Codigo,
+                Ativo = car.Ativo,
+                DataInclusao = car.DataInclusao,
+                Chassi = car.Chassi,
+                Cor = car.Cor,
+                Marca = car.Marca,
+                Modelo = car.Modelo,
+                Placa = car.Placa,
+                PesoBruto = car.PesoBruto,
+                PesoLiquido = car.PesoLiquido,
+                PesoTotal = car.PesoTotal,
+                NumPassageiros = car.NumPassageiros
             }
             )
             .ToList();
@@ -64,7 +66,8 @@ namespace Atacado.Servico.ServicoFrota
                 Placa = dominio.Placa,
                 PesoBruto = dominio.PesoBruto,
                 PesoLiquido = dominio.PesoLiquido,
-                PesoTotal = dominio.PesoTotal
+                PesoTotal = dominio.PesoTotal,
+                NumPassageiros = dominio.NumPassageiros,
             };
         }
 
@@ -81,25 +84,25 @@ namespace Atacado.Servico.ServicoFrota
             return delPoco;
         }
 
-        public override CaminhaoPoco Delete(CaminhaoPoco poco)
+        public override CarroPoco Delete(CarroPoco poco)
         {
-            Caminhao del = this.repo.Delete(poco.Codigo);
-            CaminhaoPoco delPoco = this.ConvertTo(del);
+            Carro del = this.repo.Delete(poco.Codigo);
+            CarroPoco delPoco = this.ConvertTo(del);
             return delPoco;
         }
 
-        public override CaminhaoPoco Edit(CaminhaoPoco poco)
+        public override CarroPoco Edit(CarroPoco poco)
         {
-            Caminhao editada = this.ConvertTo(poco);
-            Caminhao alterada = this.repo.Create(editada);
-            CaminhaoPoco alteradaPoco = this.ConvertTo(alterada);
+            Carro editada = this.ConvertTo(poco);
+            Carro alterada = this.repo.Create(editada);
+            CarroPoco alteradaPoco = this.ConvertTo(alterada);
             return alteradaPoco;
         }
 
-        public override CaminhaoPoco Read(int chave)
+        public override CarroPoco Read(int chave)
         {
-            Caminhao lida = this.repo.Read(chave);
-            CaminhaoPoco lidaPoco = this.ConvertTo(lida);
+            Carro lida = this.repo.Read(chave);
+            CarroPoco lidaPoco = this.ConvertTo(lida);
             return lidaPoco;
         }
     }
