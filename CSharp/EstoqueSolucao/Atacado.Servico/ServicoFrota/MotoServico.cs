@@ -13,11 +13,11 @@ namespace Atacado.Servico.ServicoFrota
 {
     public class MotocicletaServico : BaseServico<MotocicletaPoco, Motocicleta>
     {
-        private MotocicletaRepo repo;
+        private MotocicletaRepositorio repo;
 
         public MotocicletaServico() : base()
         {
-            this.repo = new MotocicletaRepo();
+            this.repo = new MotocicletaRepositorio();
         }
 
         public override MotocicletaPoco Add(MotocicletaPoco poco)
