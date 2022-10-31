@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Atacado.Servico.Base;
-using Atacado.Dominio.Estoque;
+using Atacado.DB.EF.Database;
 using Atacado.Poco.Estoque;
 using Atacado.Repositorio.Estoque;
 
@@ -53,8 +53,7 @@ namespace Atacado.Servico.Estoque
                 {
                     Codigo = cat.Codigo,
                     Descricao = cat.Descricao,
-                    Ativo = cat.Ativo,
-                    DataInclusao = cat.DataInclusao
+                    DataInsert = cat.DataInsert
                 }
                 )
                 .ToList();
@@ -63,12 +62,22 @@ namespace Atacado.Servico.Estoque
 
         public override CategoriaPoco ConvertTo(Categoria dominio)
         {
-            return new CategoriaPoco(dominio.Codigo, dominio.Descricao, dominio.Ativo, dominio.DataInclusao);
+            return new CategoriaPoco()
+            {
+                Codigo = dominio.Codigo,
+                Descricao = dominio.Descricao,
+                DataInsert = dominio.DataInsert
+            };
         }
 
         public override Categoria ConvertTo(CategoriaPoco poco)
         {
-            return new Categoria(poco.Codigo, poco.Descricao, poco.Ativo, poco.DataInclusao);
+            return new Categoria()
+            {
+                Codigo = poco.Codigo,
+                Descricao = poco.Descricao,
+                DataInsert = poco.DataInsert
+            };
         }
 
         public override CategoriaPoco Delete(int chave)
