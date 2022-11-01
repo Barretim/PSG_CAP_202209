@@ -52,9 +52,11 @@ namespace Atacado.Servico.Estoque
                 .Select(cat => new SubcategoriaPoco()
                 {
                     Codigo = cat.Codigo,
+                    CodigoCategoria = cat.CodigoCategoria,
                     Descricao = cat.Descricao,
-                    DataInsert = cat.DataInsert,
-                    CodigoCategoria = cat.CodigoCategoria
+                    Ativo = cat.Ativo,
+                    DataInsert = cat.DataInsert
+                    
                 }
                 )
                 .ToList();
@@ -66,9 +68,11 @@ namespace Atacado.Servico.Estoque
             return new SubcategoriaPoco()
             {
                 Codigo = dominio.Codigo,
+                CodigoCategoria = dominio.CodigoCategoria,
                 Descricao = dominio.Descricao,
-                DataInsert = dominio.DataInsert,
-                CodigoCategoria = dominio.CodigoCategoria
+                Ativo = dominio.Ativo,
+                DataInsert = dominio.DataInsert
+                
             };
         }
 
@@ -77,9 +81,11 @@ namespace Atacado.Servico.Estoque
             return new Subcategoria()
             {
                 Codigo = poco.Codigo,
+                CodigoCategoria = poco.CodigoCategoria,
                 Descricao = poco.Descricao,
-                DataInsert = poco.DataInsert,
-                CodigoCategoria = poco.CodigoCategoria
+                Ativo = poco.Ativo,
+                DataInsert = poco.DataInsert
+                
             };
         }
 

@@ -53,6 +53,7 @@ namespace Atacado.Servico.Estoque
                 {
                     Codigo = cat.Codigo,
                     Descricao = cat.Descricao,
+                    Ativo = cat.Ativo,
                     DataInsert = cat.DataInsert
                 }
                 )
@@ -66,6 +67,7 @@ namespace Atacado.Servico.Estoque
             {
                 Codigo = dominio.Codigo,
                 Descricao = dominio.Descricao,
+                Ativo = dominio.Ativo,
                 DataInsert = dominio.DataInsert
             };
         }
@@ -76,6 +78,7 @@ namespace Atacado.Servico.Estoque
             {
                 Codigo = poco.Codigo,
                 Descricao = poco.Descricao,
+                Ativo = poco.Ativo,
                 DataInsert = poco.DataInsert
             };
         }
