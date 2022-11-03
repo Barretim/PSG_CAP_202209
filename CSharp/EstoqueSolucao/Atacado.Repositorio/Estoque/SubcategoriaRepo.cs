@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Atacado.Repositorio.Base;
 using Atacado.DB.EF.Database;
+using System.Linq.Expressions;
 
 namespace Atacado.Repositorio.Estoque
 {
@@ -54,6 +55,20 @@ namespace Atacado.Repositorio.Estoque
         {
             return this.contexto.Subcategorias.ToList();
         }
+
+        //Adicionando apos o fim:---------------------------------------------------------------------------------------
+        public override IQueryable<Subcategoria> Read(Expression<Func<Subcategoria, bool>> predicate = null)
+        {
+            if (predicate == null)
+            {
+                return this.contexto.Subcategorias.AsQueryable();
+            }
+            else
+            {
+                return this.contexto.Subcategorias.Where(predicate).AsQueryable();
+            }
+        }
+        //-----------------------------------------------------------------------------------------------------------------
 
         public override Subcategoria Update(Subcategoria instancia)
         {

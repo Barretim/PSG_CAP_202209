@@ -8,6 +8,7 @@ using Atacado.Servico.Base;
 using Atacado.DB.EF.Database;
 using Atacado.Poco.Estoque;
 using Atacado.Repositorio.Estoque;
+using System.Linq.Expressions;
 
 namespace Atacado.Servico.Estoque
 {
@@ -48,20 +49,48 @@ namespace Atacado.Servico.Estoque
 
 
             //Modo 3:
-            List<SubcategoriaPoco> listaPoco = this.repo.Read()
-                .Select(cat => new SubcategoriaPoco()
-                {
-                    Codigo = cat.Codigo,
-                    CodigoCategoria = cat.CodigoCategoria,
-                    Descricao = cat.Descricao,
-                    Ativo = cat.Ativo,
-                    DataInsert = cat.DataInsert
-                    
-                }
-                )
-                .ToList();
+            //List<SubcategoriaPoco> listaPoco = this.repo.Read()
+            //    .Select(cat => new SubcategoriaPoco()
+            //    {
+            //        Codigo = cat.Codigo,
+            //        CodigoCategoria = cat.CodigoCategoria,
+            //        Descricao = cat.Descricao,
+            //        Ativo = cat.Ativo,
+            //        DataInsert = cat.DataInsert
+
+            //    }
+            //    )
+            //    .ToList();
+            //return listaPoco;
+
+            return this.Browse(null);
+        }
+
+        //Adicionado apos o fim:------------------------------------------------------------------------------
+        public override List<SubcategoriaPoco> Browse(Expression<Func<Subcategoria, bool>> predicado = null)
+        {
+            List<SubcategoriaPoco> listaPoco;
+            IQueryable<Subcategoria> query;
+            if (predicado == null)
+            {
+                query = this.repo.Read(null);
+            }
+            else
+            {
+                query = this.repo.Read(predicado);
+            }
+            listaPoco = query.Select(cat => new SubcategoriaPoco()
+            {
+                Codigo = cat.Codigo,
+                CodigoCategoria = cat.CodigoCategoria,
+                Descricao = cat.Descricao,
+                Ativo = cat.Ativo,
+                DataInsert = cat.DataInsert
+            }
+            ).ToList();
             return listaPoco;
         }
+        //------------------------------------------------------------------------------------------------------
 
         public override SubcategoriaPoco ConvertTo(Subcategoria dominio)
         {
@@ -72,7 +101,7 @@ namespace Atacado.Servico.Estoque
                 Descricao = dominio.Descricao,
                 Ativo = dominio.Ativo,
                 DataInsert = dominio.DataInsert
-                
+
             };
         }
 
@@ -85,7 +114,7 @@ namespace Atacado.Servico.Estoque
                 Descricao = poco.Descricao,
                 Ativo = poco.Ativo,
                 DataInsert = poco.DataInsert
-                
+
             };
         }
 

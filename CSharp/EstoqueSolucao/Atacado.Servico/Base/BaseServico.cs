@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,10 @@ namespace Atacado.Servico.Base
         where TDominio : class
     {
         public abstract List<TPoco> Browse();
+
+        //Adicionado apos o fim:-------------------------------------------------------------------
+        public abstract List<TPoco> Browse(Expression<Func<TDominio, bool>> predicado = null);
+        //-----------------------------------------------------------------------------------------
              
         public abstract TPoco Read(int chave);
                 

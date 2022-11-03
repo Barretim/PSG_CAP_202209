@@ -8,6 +8,8 @@ using Atacado.Servico.Base;
 using Atacado.DB.EF.Database;
 using Atacado.Poco.Estoque;
 using Atacado.Repositorio.Estoque;
+using System.ComponentModel;
+using System.Linq.Expressions;
 
 namespace Atacado.Servico.Estoque
 {
@@ -48,18 +50,45 @@ namespace Atacado.Servico.Estoque
 
 
             //Modo 3:
-            List<CategoriaPoco> listaPoco = this.repo.Read()
-                .Select(cat => new CategoriaPoco()
-                {
-                    Codigo = cat.Codigo,
-                    Descricao = cat.Descricao,
-                    Ativo = cat.Ativo,
-                    DataInsert = cat.DataInsert
-                }
-                )
-                .ToList();
+            //List<CategoriaPoco> listaPoco = this.repo.Read()
+            //    .Select(cat => new CategoriaPoco()
+            //    {
+            //        Codigo = cat.Codigo,
+            //        Descricao = cat.Descricao,
+            //        Ativo = cat.Ativo,
+            //        DataInsert = cat.DataInsert
+            //    }
+            //    )
+            //    .ToList();
+            //return listaPoco;
+
+            return this.Browse(null);
+        }
+        
+        //Adicionado apos o fim:----------------------------------------------------------------------------
+        public override List<CategoriaPoco> Browse(Expression<Func<Categoria, bool>> predicado = null)
+        {
+            List<CategoriaPoco> listaPoco;
+            IQueryable<Categoria> query;
+            if (predicado == null)
+            {
+                query = this.repo.Read(null);
+            }
+            else
+            {
+                query = this.repo.Read(predicado);
+            }
+            listaPoco = query.Select(cat => new CategoriaPoco()
+            {
+                Codigo = cat.Codigo,
+                Descricao = cat.Descricao,
+                Ativo = cat.Ativo,
+                DataInsert = cat.DataInsert
+            }
+            ).ToList();
             return listaPoco;
         }
+        //-----------------------------------------------------------------------------------------------------
 
         public override CategoriaPoco ConvertTo(Categoria dominio)
         {

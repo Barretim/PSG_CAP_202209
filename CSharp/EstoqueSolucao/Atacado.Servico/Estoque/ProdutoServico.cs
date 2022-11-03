@@ -8,6 +8,7 @@ using Atacado.Servico.Base;
 using Atacado.DB.EF.Database;
 using Atacado.Poco.Estoque;
 using Atacado.Repositorio.Estoque;
+using System.Linq.Expressions;
 
 namespace Atacado.Servico.Estoque
 {
@@ -48,22 +49,50 @@ namespace Atacado.Servico.Estoque
 
 
             //Modo 3:
-            List<ProdutoPoco> listaPoco = this.repo.Read()
-                .Select(cat => new ProdutoPoco()
-                {
-                    Codigo = cat.Codigo,
-                    CodigoCategoria = cat.CodigoCategoria,
-                    CodigoSubcategoria = cat.CodigoSubcategoria,
-                    Descricao = cat.Descricao,
-                    Ativo = cat.Ativo,
-                    DataInsert = cat.DataInsert
-                    
-                }
-                )
-                .ToList();
-            return listaPoco;
+            //List<ProdutoPoco> listaPoco = this.repo.Read()
+            //    .Select(cat => new ProdutoPoco()
+            //    {
+            //        Codigo = cat.Codigo,
+            //        CodigoCategoria = cat.CodigoCategoria,
+            //        CodigoSubcategoria = cat.CodigoSubcategoria,
+            //        Descricao = cat.Descricao,
+            //        Ativo = cat.Ativo,
+            //        DataInsert = cat.DataInsert
+
+            //    }
+            //    )
+            //    .ToList();
+            //return listaPoco;
+
+            return this.Browse(null);
         }
 
+        //Adicionado apos o fim:----------------------------------------------------------------------------
+        public override List<ProdutoPoco> Browse(Expression<Func<Produto, bool>> predicado = null)
+        {
+            List<ProdutoPoco> listaPoco;
+            IQueryable<Produto> query;
+            if (predicado == null)
+            {
+                query = this.repo.Read(null);
+            }
+            else
+            {
+                query = this.repo.Read(predicado);
+            }
+            listaPoco = query.Select(cat => new ProdutoPoco()
+            {
+                Codigo = cat.Codigo,
+                CodigoCategoria = cat.CodigoCategoria,
+                CodigoSubcategoria = cat.CodigoSubcategoria,
+                Descricao = cat.Descricao,
+                Ativo = cat.Ativo,
+                DataInsert = cat.DataInsert
+            }
+            ).ToList();
+            return listaPoco;
+        }
+        //----------------------------------------------------------------------------------------------------
         public override ProdutoPoco ConvertTo(Produto dominio)
         {
             return new ProdutoPoco()
