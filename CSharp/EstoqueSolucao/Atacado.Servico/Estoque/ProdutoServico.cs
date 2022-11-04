@@ -32,6 +32,9 @@ namespace Atacado.Servico.Estoque
 
         public override List<ProdutoPoco> Browse()
         {
+            return this.Browse(null);
+
+
             //Modo 1:
             //List<Categoria> lista = this.repo.Read();
             //List<CategoriaPoco> listaPoco = new List<CategoriaPoco>();
@@ -64,7 +67,7 @@ namespace Atacado.Servico.Estoque
             //    .ToList();
             //return listaPoco;
 
-            return this.Browse(null);
+
         }
 
         //Adicionado apos o fim:----------------------------------------------------------------------------

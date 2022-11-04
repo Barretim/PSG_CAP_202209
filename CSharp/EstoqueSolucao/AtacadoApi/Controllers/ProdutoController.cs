@@ -50,10 +50,10 @@ namespace AtacadoApi.Controllers
         /// </summary>
         /// <param name="subid"></param>
         /// <returns></returns>
-        [HttpGet("\"PorSubcategoria/{catid:int}")]
+        [HttpGet("PorSubcategoria/{subid:int}")]
         public List<ProdutoPoco> GetPorSubcategoria(int subid)
         {
-            return this.servico.Browse(sub => sub.CodigoSubcategoria == subid).ToList();
+            return this.servico.Browse(prd => prd.CodigoSubcategoria == subid).ToList();
         }
 
         /// <summary>
