@@ -16,13 +16,13 @@ namespace Atacado.Servico.Estoque
 {
     public class CategoriaServico : BaseServico<CategoriaPoco, Categoria>
     {
-        private CategoriaRepo repo;
+        //private CategoriaRepo repo;
 
         private GenericRepository<Categoria> genrepo;
 
         public CategoriaServico() : base()
         {
-            this.repo = new CategoriaRepo();
+           // this.repo = new CategoriaRepo();
 
             this.genrepo = new GenericRepository<Categoria>();
         }
@@ -135,6 +135,7 @@ namespace Atacado.Servico.Estoque
             //Categoria del = this.repo.Delete(ConvertTo(poco));
             //CategoriaPoco delPoco = this.ConvertTo(del);
             //return delPoco;
+            //----------------------------------------------------
             //Categoria del = this.repo.Delete(poco.Codigo);
             Categoria del = this.genrepo.Delete(poco.Codigo);
             CategoriaPoco delPoco = this.ConvertTo(del);
