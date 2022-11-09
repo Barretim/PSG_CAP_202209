@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Atacado.Servico.Base;
 using Atacado.DB.EF.Database;
 using Atacado.Poco.Estoque;
-using Atacado.Repositorio.Estoque;
 using System.Linq.Expressions;
 using Atacado.Repositorio.Base;
 
