@@ -10,82 +10,46 @@ using Atacado.Poco.Estoque;
 using Atacado.Repositorio.Base;
 using System.ComponentModel;
 using System.Linq.Expressions;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Atacado.Servico.Estoque
 {
-    public class CategoriaServico : BaseServico<CategoriaPoco, Categoria>
+    public class CategoriaServico : GenericService<Categoria ,CategoriaPoco>
     {
-        //private CategoriaRepo repo;
-
-        private GenericRepository<Categoria> genrepo;
-
-        public CategoriaServico() : base()
+        public override CategoriaPoco ConverterPara(Categoria obj)
         {
-           // this.repo = new CategoriaRepo();
-
-            this.genrepo = new GenericRepository<Categoria>();
-        }
-
-        public override CategoriaPoco Add(CategoriaPoco poco)
-        {
-            Categoria nova = this.ConvertTo(poco);
-            //Categoria criada = this.repo.Create(nova);
-            Categoria criada = this.genrepo.Insert(nova);
-            CategoriaPoco criadaPoco = this.ConvertTo(criada);
-            return criadaPoco;
-
-        }
-
-        public override List<CategoriaPoco> Browse()
-        {
-            //Modo 1:
-            //List<Categoria> lista = this.repo.Read();
-            //List<CategoriaPoco> listaPoco = new List<CategoriaPoco>();
-            //foreach (Categoria item in lista)
-            //{
-            //    CategoriaPoco poco = this.ConvertTo(item);
-            //    listaPoco.Add(poco);
-            //}
-            //return listaPoco;
-
-
-            //Modo 2:
-            //List<CategoriaPoco> listaPoco = this.repo.Read().Select(cat => new CategoriaPoco(cat.Codigo, cat.Descricao, cat.Ativo, cat.DataInclusao)).ToList();
-            //return listaPoco;
-
-
-            //Modo 3:
-            //List<CategoriaPoco> listaPoco = this.repo.Read()
-            //    .Select(cat => new CategoriaPoco()
-            //    {
-            //        Codigo = cat.Codigo,
-            //        Descricao = cat.Descricao,
-            //        Ativo = cat.Ativo,
-            //        DataInsert = cat.DataInsert
-            //    }
-            //    )
-            //    .ToList();
-            //return listaPoco;
-
-            return this.Browse(null);
-        }
-        
-        //Adicionado apos o fim:----------------------------------------------------------------------------
-        public override List<CategoriaPoco> Browse(Expression<Func<Categoria, bool>> predicado = null)
-        {
-            List<CategoriaPoco> listaPoco;
-            IQueryable<Categoria> query;
-            if (predicado == null)
+            return new CategoriaPoco()
             {
-                //query = this.repo.Read(null);
+                Codigo = obj.Codigo,
+                Descricao = obj.Descricao,
+                Ativo = obj.Ativo,
+                DataInsert = obj.DataInsert
+            };
+        }
+
+        public override Categoria ConverterPara(CategoriaPoco obj)
+        {
+            return new Categoria()
+            {
+                Codigo = obj.Codigo,
+                Descricao = obj.Descricao,
+                Ativo = obj.Ativo,
+                DataInsert = obj.DataInsert
+            };
+        }
+
+        public override List<CategoriaPoco> Consultar(Expression<Func<Categoria, bool>> predicate = null)
+        {
+            IQueryable<Categoria> query;
+            if (predicate == null)
+            {
                 query = this.genrepo.Browseable(null);
             }
             else
             {
-                //query = this.repo.Read(predicado);
-                query = this.genrepo.Browseable(predicado);
+                query = this.genrepo.Browseable(predicate);
             }
-            listaPoco = query.Select(cat => new CategoriaPoco()
+            List<CategoriaPoco> listaPoco = query.Select(cat => new CategoriaPoco()
             {
                 Codigo = cat.Codigo,
                 Descricao = cat.Descricao,
@@ -94,68 +58,6 @@ namespace Atacado.Servico.Estoque
             }
             ).ToList();
             return listaPoco;
-        }
-        //-----------------------------------------------------------------------------------------------------
-
-        public override CategoriaPoco ConvertTo(Categoria dominio)
-        {
-            return new CategoriaPoco()
-            {
-                Codigo = dominio.Codigo,
-                Descricao = dominio.Descricao,
-                Ativo = dominio.Ativo,
-                DataInsert = dominio.DataInsert
-            };
-        }
-
-        public override Categoria ConvertTo(CategoriaPoco poco)
-        {
-            return new Categoria()
-            {
-                Codigo = poco.Codigo,
-                Descricao = poco.Descricao,
-                Ativo = poco.Ativo,
-                DataInsert = poco.DataInsert
-            };
-        }
-
-        public override CategoriaPoco Delete(int chave)
-        {
-            //Categoria del = this.repo.Delete(chave);
-            Categoria del = this.genrepo.Delete(chave);
-            CategoriaPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override CategoriaPoco Delete(CategoriaPoco poco)
-        {
-
-            //outra forma:
-            //Categoria del = this.repo.Delete(ConvertTo(poco));
-            //CategoriaPoco delPoco = this.ConvertTo(del);
-            //return delPoco;
-            //----------------------------------------------------
-            //Categoria del = this.repo.Delete(poco.Codigo);
-            Categoria del = this.genrepo.Delete(poco.Codigo);
-            CategoriaPoco delPoco = this.ConvertTo(del);
-            return delPoco;
-        }
-
-        public override CategoriaPoco Edit(CategoriaPoco poco)
-        {
-            Categoria editada = this.ConvertTo(poco);
-            //Categoria alterada = this.repo.Update(editada);
-            Categoria alterada = this.genrepo.Update(editada);
-            CategoriaPoco alteradaPoco = this.ConvertTo(alterada);
-            return alteradaPoco;
-        }
-
-        public override CategoriaPoco Read(int chave)
-        {
-            //Categoria lida = this.repo.Read(chave);
-            Categoria lida = this.genrepo.GetById(chave);
-            CategoriaPoco lidaPoco = this.ConvertTo(lida);
-            return lidaPoco;
         }
     }
 }

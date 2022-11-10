@@ -25,6 +25,12 @@ namespace AtacadoApi.Controllers
             this.servico = new ProdutoServico();
         }
 
+        [HttpGet]
+        public List<ProdutoPoco> Get(int? take = null, int? skip = null)
+        { 
+            return this.servico.Listar(take, skip);
+        }
+
         /// <summary>
         /// Lista todos os registros da tabela Produto
         /// </summary>
@@ -34,7 +40,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                List<ProdutoPoco> lista = this.servico.Browse();
+                List<ProdutoPoco> lista = this.servico.Listar();
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -53,7 +59,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                List<ProdutoPoco> lista = this.servico.Browse(prd => prd.CodigoCategoria == catid).ToList();
+                List<ProdutoPoco> lista = this.servico.Consultar(prd => prd.CodigoCategoria == catid).ToList();
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -72,7 +78,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                List<ProdutoPoco> lista = this.servico.Browse(prd => prd.CodigoSubcategoria == subid).ToList();
+                List<ProdutoPoco> lista = this.servico.Consultar(prd => prd.CodigoSubcategoria == subid).ToList();
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -92,7 +98,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                List<ProdutoPoco> lista = this.servico.Browse(prd => (prd.CodigoCategoria == catid) && (prd.CodigoSubcategoria == subid)).ToList();
+                List<ProdutoPoco> lista = this.servico.Consultar(prd => (prd.CodigoCategoria == catid) && (prd.CodigoSubcategoria == subid)).ToList();
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -111,7 +117,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                ProdutoPoco lista = this.servico.Read(codigo);
+                ProdutoPoco lista = this.servico.PesquisaPelaChave(codigo);
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -130,7 +136,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                ProdutoPoco lista = this.servico.Add(poco);
+                ProdutoPoco lista = this.servico.Inserir(poco);
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -149,7 +155,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                ProdutoPoco lista = this.servico.Edit(poco);
+                ProdutoPoco lista = this.servico.Alterar(poco);
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -168,7 +174,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                ProdutoPoco lista = this.servico.Delete(codigo);
+                ProdutoPoco lista = this.servico.Excluir(codigo);
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -187,7 +193,7 @@ namespace AtacadoApi.Controllers
         {
             try
             {
-                ProdutoPoco lista = this.servico.Delete(poco);
+                ProdutoPoco lista = this.servico.Excluir(poco.Codigo);
                 return Ok(lista);
             }
             catch (Exception ex)

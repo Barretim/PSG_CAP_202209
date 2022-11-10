@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Atacado.DB.EF.Database;
+using Atacado.Poco.Estoque;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -13,18 +15,22 @@ namespace Atacado.Servico.Base
     {
         List<TPoco> Listar();
 
-        IQueryable<TPoco> Consultar(Expression<Func<TDominio, bool>> predicate = null);
+        List<TPoco> Listar(int? take, int? skip = null);
 
-        TPoco PesquisaPelaChave(object chave);
+        List<TPoco> Consultar(Expression<Func<TDominio, bool>>? predicate = null);
 
-        TPoco Inserir(TPoco obj);
-
-        TPoco Alterar(TPoco obj);
-
-        TPoco Excluir(object chave);
+        TPoco? PesquisaPelaChave(object chave);
+             
+        TPoco? Inserir(TPoco obj);
+             
+        TPoco? Alterar(TPoco obj);
+             
+        TPoco? Excluir(object chave);
 
         TDominio ConverterPara(TPoco obj);
 
         TPoco ConverterPara(TDominio obj);
+
+        List<ProdutoPoco> ConverterPara(IQueryable<Produto> query);
     }
 }
