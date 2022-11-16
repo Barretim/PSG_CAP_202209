@@ -14,32 +14,6 @@ namespace Atacado.Servico.Estoque
 {
     public class ProdutoServico : GenericService<Produto,ProdutoPoco>
     {
-        public override ProdutoPoco ConverterPara(Produto obj)
-        {
-            return new ProdutoPoco()
-            {
-                Codigo = obj.Codigo,
-                CodigoCategoria = obj.CodigoCategoria,
-                CodigoSubcategoria = obj.CodigoSubcategoria,
-                Descricao = obj.Descricao,
-                Ativo = obj.Ativo,
-                DataInsert = obj.DataInsert
-            };
-        }
-
-        public override Produto ConverterPara(ProdutoPoco obj)
-        {
-            return new Produto()
-            {
-                Codigo = obj.Codigo,
-                CodigoCategoria = obj.CodigoCategoria,
-                CodigoSubcategoria = obj.CodigoSubcategoria,
-                Descricao = obj.Descricao,
-                Ativo = obj.Ativo,
-                DataInsert = obj.DataInsert
-            };
-        }
-
         public override List<ProdutoPoco> Consultar(Expression<Func<Produto, bool>>? predicate = null)
         {
             IQueryable<Produto> query;
