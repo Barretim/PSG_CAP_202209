@@ -16,8 +16,10 @@ namespace Atacado.DB.EF.Database
 
         [Key]
         public int Codigo { get; set; }
+
         [Unicode(false)]
         public string Descricao { get; set; } = null!;
+
         [Column(TypeName = "datetime")]
         public DateTime DataInsert { get; set; }
 
