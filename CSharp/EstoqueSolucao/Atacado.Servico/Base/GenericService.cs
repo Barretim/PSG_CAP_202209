@@ -97,7 +97,7 @@ namespace Atacado.Servico.Base
             return this.genmap.Mapping.Map<TPoco>(obj);
         }
 
-        public virtual List<ProdutoPoco> ConverterPara(IQueryable<Produto> query)
+        public virtual List<TPoco> ConverterPara(IQueryable<TDominio> query)
         {
             throw new NotImplementedException();
         }

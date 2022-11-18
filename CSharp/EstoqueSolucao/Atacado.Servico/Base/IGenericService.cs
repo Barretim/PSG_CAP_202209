@@ -31,6 +31,6 @@ namespace Atacado.Servico.Base
 
         TPoco ConverterPara(TDominio obj);
 
-        List<ProdutoPoco> ConverterPara(IQueryable<Produto> query);
+        List<TPoco> ConverterPara(IQueryable<TDominio> query);
     }
 }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Atacado.Poco.Estoque;
 
 namespace Atacado.Servico.Pecuaria
 {
@@ -23,20 +24,38 @@ namespace Atacado.Servico.Pecuaria
             {
                 query = this.genrepo.Browseable(predicate);
             }
-            List<RebanhoPoco> listaPoco = query.Select(reb => new RebanhoPoco()
+            return this.ConverterPara(query);
+        }
+
+        public override List<RebanhoPoco> Listar(int? take = null, int? skip = null)
+        {
+            IQueryable<Rebanho> query;
+            if (skip == null)
+            {
+                query = this.genrepo.GetAll();
+            }
+            else
+            {
+                query = this.genrepo.GetAll(take, skip);
+            }
+            return this.ConverterPara(query);
+        }
+
+        public override List<RebanhoPoco> ConverterPara(IQueryable<Rebanho> query)
+        {
+            return query.Select(reb => new RebanhoPoco()
             {
                 CodigoRebanho = reb.CodigoRebanho,
                 AnoRef = reb.AnoRef,
                 CodigoMunicipio = reb.CodigoMunicipio,
                 CodigoTipoRebanho = reb.CodigoTipoRebanho,
-                TipoDoRebanho = reb.TipoDoRebanho,
+                TipoRebanho = reb.TipoDoRebanho,
                 Quantidade = reb.Quantidade,
                 Situacao = reb.Situacao,
                 DataInclusao = reb.DataInclusao,
                 DataAlteracao = reb.DataAlteracao,
                 DataExclusao = reb.DataExclusao
             }).ToList();
-            return listaPoco;
         }
     }
 }

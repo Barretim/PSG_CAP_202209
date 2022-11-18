@@ -1,9 +1,8 @@
-﻿using Atacado.Servico.Estoque;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-using Atacado.Poco.Estoque;
-using System;
+using Atacado.Poco.Pecuaria;
+using Atacado.Servico.Pecuaria;
 
 
 namespace AtacadoApi.Controllers
@@ -11,43 +10,30 @@ namespace AtacadoApi.Controllers
     /// <summary>
     /// 
     /// </summary>
-    [Route("api/estoque/[controller]")]
+    [Route("api/pecuaria/[controller]")]
     [ApiController]
-    public class ProdutoController : ControllerBase
+    public class RebanhoController : ControllerBase
     {
-        private ProdutoServico servico;
+        private RebanhoServico servico;
 
         /// <summary>
         /// 
         /// </summary>
-        public ProdutoController() : base()
-        {
-            this.servico = new ProdutoServico();
+        public RebanhoController() : base()
+        { 
+            this.servico = new RebanhoServico();
         }
 
         /// <summary>
-        /// 
+        /// Obtem a lista de Rebanho
         /// </summary>
-        /// <param name="take"></param>
-        /// <param name="skip"></param>
         /// <returns></returns>
         [HttpGet]
-        public List<ProdutoPoco> Get(int? take = null, int? skip = null)
-        { 
-            return this.servico.Listar(take, skip);
-        }
-
-        /// <summary>
-        /// Listar todos os registros da tabela Categoria
-        /// </summary>
-        /// <param name="catid"></param>
-        /// <returns></returns>
-        [HttpGet("PorCategoria/{catid:int}")]
-        public ActionResult<List<ProdutoPoco>> GetPorCategoria(int catid)
+        public ActionResult<List<RebanhoPoco>> Obter(int? take = null, int? skip = null)
         {
             try
             {
-                List<ProdutoPoco> lista = this.servico.Consultar(prd => prd.CodigoCategoria == catid).ToList();
+                List<RebanhoPoco> lista = this.servico.Listar(take, skip);
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -57,16 +43,16 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Listar todos os registros da tabela Subcategoria
+        /// Trás uma lista de Municipio em Rebanho 
         /// </summary>
-        /// <param name="subid"></param>
+        /// <param name="munid"></param>
         /// <returns></returns>
-        [HttpGet("PorSubcategoria/{subid:int}")]
-        public ActionResult<List<ProdutoPoco>> GetPorSubcategoria(int subid)
+        [HttpGet("PorMunicipio/{munid:int}")]
+        public ActionResult<List<RebanhoPoco>> GetPorMunicipio(int munid)
         {
             try
             {
-                List<ProdutoPoco> lista = this.servico.Consultar(prd => prd.CodigoSubcategoria == subid).ToList();
+                List<RebanhoPoco> lista = this.servico.Consultar(prd => prd.CodigoMunicipio == munid).ToList();
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -76,17 +62,17 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Busca um registro de Produto pelo Id de Subcategoria e pelo Id de Categoria
+        /// Trás uma lista de Municipio e de Tipo de Rebanho em Rebanho 
         /// </summary>
-        /// <param name="catid"></param>
-        /// <param name="subid"></param>
+        /// <param name="tipid"></param>
+        /// <param name="munid"></param>
         /// <returns></returns>
-        [HttpGet("PorCategoria/{catid:int}/PorSubcategoria/{subid:int}")]
-        public ActionResult<List<ProdutoPoco>> GetPorCategoriaPorSubcategoria(int catid, int subid)
+        [HttpGet("PorTipoRebanho/{tipid:int}/PorMunicipio/{munid:int}")]
+        public ActionResult<List<RebanhoPoco>> GetPorTipoRebanhoPorMunicipio(int tipid, int munid)
         {
             try
             {
-                List<ProdutoPoco> lista = this.servico.Consultar(prd => (prd.CodigoCategoria == catid) && (prd.CodigoSubcategoria == subid)).ToList();
+                List<RebanhoPoco> lista = this.servico.Consultar(prd => (prd.CodigoTipoRebanho == tipid) && (prd.CodigoMunicipio == munid)).ToList();
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -96,17 +82,17 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Busca um registro de Produto pelo Id
+        /// Busca um registro de Rebanho por Id
         /// </summary>
         /// <param name="codigo"></param>
         /// <returns></returns>
         [HttpGet("{codigo:int}")]
-        public ActionResult<ProdutoPoco> ObterPorId(int codigo)
+        public ActionResult<RebanhoPoco> ObterPorId(int codigo)
         {
             try
             {
-                ProdutoPoco lista = this.servico.PesquisaPelaChave(codigo);
-                return Ok(lista);
+                RebanhoPoco poco = this.servico.PesquisaPelaChave(codigo);
+                return Ok(poco);
             }
             catch (Exception ex)
             {
@@ -115,16 +101,16 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Registra um novo registro e um novo Id em Produto
+        /// Registra um novo registro e um novo Id em Rebanho
         /// </summary>
         /// <param name="poco"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult<ProdutoPoco> Adicionar([FromBody] ProdutoPoco poco)
+        public ActionResult<RebanhoPoco> Adicionar([FromBody] RebanhoPoco poco)
         {
             try
             {
-                ProdutoPoco lista = this.servico.Inserir(poco);
+                RebanhoPoco lista = this.servico.Inserir(poco);
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -134,16 +120,16 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Atualiza um registro em Produto
+        /// Atualiza um registro em Rebanho
         /// </summary>
         /// <param name="poco"></param>
         /// <returns></returns>
         [HttpPut]
-        public ActionResult<ProdutoPoco> Atualizar([FromBody] ProdutoPoco poco)
+        public ActionResult<RebanhoPoco> Atualizar([FromBody] RebanhoPoco poco)
         {
             try
             {
-                ProdutoPoco lista = this.servico.Alterar(poco);
+                RebanhoPoco lista = this.servico.Alterar(poco);
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -153,16 +139,16 @@ namespace AtacadoApi.Controllers
         }
 
         /// <summary>
-        /// Exclui um registro de Produto pelo Id
+        /// Exclui um registro pelo código
         /// </summary>
         /// <param name="codigo"></param>
         /// <returns></returns>
         [HttpDelete("{codigo:int}")]
-        public ActionResult<ProdutoPoco> ExcluirPorId(int codigo)
+        public ActionResult<RebanhoPoco> ExcluirPorId(int codigo)
         {
             try
             {
-                ProdutoPoco lista = this.servico.Excluir(codigo);
+                RebanhoPoco lista = this.servico.Excluir(codigo);
                 return Ok(lista);
             }
             catch (Exception ex)
@@ -177,11 +163,11 @@ namespace AtacadoApi.Controllers
         /// <param name="poco"></param>
         /// <returns></returns>
         [HttpDelete]
-        public ActionResult<ProdutoPoco> ExcluirPorInstancia([FromBody] ProdutoPoco poco)
+        public ActionResult<RebanhoPoco> ExcluirPorInstancia([FromBody] RebanhoPoco poco)
         {
             try
             {
-                ProdutoPoco lista = this.servico.Excluir(poco.Codigo);
+                RebanhoPoco lista = this.servico.Excluir(poco.CodigoRebanho);
                 return Ok(lista);
             }
             catch (Exception ex)
