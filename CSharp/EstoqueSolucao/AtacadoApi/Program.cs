@@ -1,6 +1,10 @@
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using Atacado.DB.EF.Database;
+using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,13 +37,16 @@ builder.Services.AddSwaggerGen(opcoes =>
     opcoes.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
 
+string str = builder.Configuration.GetConnectionString("Academia");
+builder.Services.AddDbContext<ProjetoAcademiaContext>(options => options.UseSqlServer(str));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(opcoes => opcoes.DocExpansion(DocExpansion.None));
 }
 
 app.UseHttpsRedirection();

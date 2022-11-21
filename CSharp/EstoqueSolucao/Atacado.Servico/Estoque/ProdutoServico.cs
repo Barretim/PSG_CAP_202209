@@ -14,6 +14,9 @@ namespace Atacado.Servico.Estoque
 {
     public class ProdutoServico : GenericService<Produto,ProdutoPoco>
     {
+        public ProdutoServico(ProjetoAcademiaContext context) : base(context)
+        { }
+
         public override List<ProdutoPoco> Consultar(Expression<Func<Produto, bool>>? predicate = null)
         {
             IQueryable<Produto> query;

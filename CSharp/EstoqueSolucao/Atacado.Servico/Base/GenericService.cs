@@ -20,9 +20,9 @@ namespace Atacado.Servico.Base
 
         protected GenericMap<TDominio, TPoco> genmap;
 
-        public GenericService()
+        public GenericService(ProjetoAcademiaContext context)
         {
-            this.genrepo = new GenericRepository<TDominio>();
+            this.genrepo = new GenericRepository<TDominio>(context);
             this.genmap = new GenericMap<TDominio, TPoco>();
         }
 
