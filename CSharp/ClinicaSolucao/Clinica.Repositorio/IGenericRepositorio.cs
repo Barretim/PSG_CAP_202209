@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Clinica.Repositorio
 {
-    public interface IGenericRepository<T> where T : class
+    public interface IGenericRepositorio<T> where T : class
     {
         IQueryable<T> Browseable(Expression<Func<T, bool>>? predicate = null);
 

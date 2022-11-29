@@ -22,7 +22,7 @@ namespace Clinica.Poco
 
         public string Telefone { get; set; } = null!;
 
-        public DateTime DataNascimento { get; set; }
+        public DateTime DataDeNascimento { get; set; }
 
         public int CodigoProfissao { get; set; }
 

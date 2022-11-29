@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Clinica.Dominio.EF
 {
+    [Table("Paciente", Schema = "dbo")]
     public partial class Paciente
     {
         [Key]
@@ -28,8 +29,8 @@ namespace Clinica.Dominio.EF
         [StringLength(14)]
         public string Telefone { get; set; } = null!;
 
-        [Column(name: "DataNascimento", TypeName = "datetime")]
-        public DateTime DataNascimento { get; set; }
+        [Column(name: "DataDeNascimento", TypeName = "datetime")]
+        public DateTime DataDeNascimento { get; set; }
 
         [Column(name: "CodigoProfissao")]
         public int CodigoProfissao { get; set; }

@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClinicaApi</name>
+    </assembly>
+    <members>
+        <member name="T:ClinicaApi.Controllers.AgendaController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ClinicaApi.Controllers.AgendaController.servico">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:ClinicaApi.Controllers.AgendaController.#ctor(Clinica.Dominio.EF.ClinicaContext)">
+             <summary>
+            
+             </summary>
+             <param name="context"></param>
+        </member>
+        <member name="M:ClinicaApi.Controllers.AgendaController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+             <summary>
+            
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.AgendaController.GetByPaciente(System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="pacid"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.AgendaController.GetByConsultaByAno(System.Int32,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="conid"></param>
+             <param name="ano"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.AgendaController.GetById(System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="chave"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.AgendaController.Post(Clinica.Poco.AgendaPoco)">
+             <summary>
+            
+             </summary>
+             <param name="poco"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.AgendaController.Put(Clinica.Poco.AgendaPoco)">
+             <summary>
+            
+             </summary>
+             <param name="poco"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.AgendaController.DeleteById(System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="chave"></param>
+             <returns></returns>
+        </member>
+        <member name="T:ClinicaApi.Controllers.ConsultaController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ClinicaApi.Controllers.ConsultaController.servico">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ClinicaApi.Controllers.ConsultaController.#ctor(Clinica.Dominio.EF.ClinicaContext)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:ClinicaApi.Controllers.ConsultaController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+             <summary>
+            
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.ConsultaController.GetById(System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="chave"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.ConsultaController.Post(Clinica.Poco.ConsultaPoco)">
+             <summary>
+            
+             </summary>
+             <param name="poco"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.ConsultaController.Put(Clinica.Poco.ConsultaPoco)">
+             <summary>
+            
+             </summary>
+             <param name="poco"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.ConsultaController.Delete(System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="chave"></param>
+             <returns></returns>
+        </member>
+        <member name="T:ClinicaApi.Controllers.PacienteController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ClinicaApi.Controllers.PacienteController.#ctor(Clinica.Dominio.EF.ClinicaContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:ClinicaApi.Controllers.PacienteController.Obter">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.PacienteController.ObterCodigoProfissao(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="proid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.PacienteController.ObterPorId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="codigo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.PacienteController.Adicionar(Clinica.Poco.PacientePoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.PacienteController.Atualizar(Clinica.Poco.PacientePoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.PacienteController.ExcluirPorId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="codigo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.PacienteController.ExcluirPorInstancia(Clinica.Poco.PacientePoco)">
+            <summary>
+            
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ClinicaApi.Controllers.ProfissaoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ClinicaApi.Controllers.ProfissaoController.servico">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ClinicaApi.Controllers.ProfissaoController.#ctor(Clinica.Dominio.EF.ClinicaContext)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:ClinicaApi.Controllers.ProfissaoController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+             <summary>
+            
+             </summary>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.ProfissaoController.GetById(System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="chave"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.ProfissaoController.Post(Clinica.Poco.ProfissaoPoco)">
+             <summary>
+            
+             </summary>
+             <param name="poco"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.ProfissaoController.Put(Clinica.Poco.ProfissaoPoco)">
+             <summary>
+            
+             </summary>
+             <param name="poco"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ClinicaApi.Controllers.ProfissaoController.Delete(System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="chave"></param>
+             <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Clinica.Repositorio
 {
-    public class GenericRepository<TDominio> : IGenericRepository<TDominio> where TDominio : class
+    public class GenericRepositorio<TDominio> : IGenericRepositorio<TDominio> where TDominio : class
     {
 
         private ClinicaContext context;
 
         private DbSet<TDominio> table;
 
-        public GenericRepository(ClinicaContext context, DbSet<TDominio> table)
+        public GenericRepositorio(ClinicaContext context)
         {
             this.context = context;
             this.table = this.context.Set<TDominio>();
