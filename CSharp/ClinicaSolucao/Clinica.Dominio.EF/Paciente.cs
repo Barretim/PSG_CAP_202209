@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Clinica.Dominio.EF
 {
@@ -14,6 +15,7 @@ namespace Clinica.Dominio.EF
     public partial class Paciente
     {
         [Key]
+        [Column(name: "CodigoPaciente")]
         public int CodigoPaciente { get; set; }
 
         [Column(name: "Nome")]

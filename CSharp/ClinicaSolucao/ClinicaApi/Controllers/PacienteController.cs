@@ -11,7 +11,7 @@ namespace ClinicaApi.Controllers
 {/// <summary>
 /// 
 /// </summary>
-    [Route("api/[controller]")]
+    [Route("api/clinica/[controller]")]
     [ApiController]
     
     public class PacienteController : ControllerBase
