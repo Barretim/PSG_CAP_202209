@@ -44,21 +44,49 @@ namespace Clinica.Servico
             return this.ConverterPara(query);
         }
 
+        public override List<ServicoPoco> Vasculhar(int? take, int? skip = null, Expression<Func<Dominio.EF.Servico, bool>>? predicate = null)
+        {
+            IQueryable<Clinica.Dominio.EF.Servico> query;
+            if (skip == null)
+            {
+                if (predicate == null)
+                {
+                    query = this.genrepo.Browseable(null);
+                }
+                else
+                {
+                    query = this.genrepo.Browseable(predicate);
+                }
+            }
+            else
+            {
+                if (predicate == null)
+                {
+                    query = this.genrepo.GetAll(take, skip);
+                }
+                else
+                {
+                    query = this.genrepo.Searchable(take, skip, predicate);
+                }
+            }
+            return this.ConverterPara(query);
+        }
+
         public override List<ServicoPoco> ConverterPara(IQueryable<Clinica.Dominio.EF.Servico> query)
         {
-            return query.Select(pac => new ServicoPoco()
+            return query.Select(pro => new ServicoPoco()
             {
-                CodigoServico = pac.CodigoServico,
-                Descricao = pac.Descricao,
-                Preco = pac.Preco,
-                TipoServico = pac.TipoServico,
-                Situacao = pac.Situacao,
-                DataInclusao = pac.DataInclusao,
-                DataAlteracao = pac.DataAlteracao,
-                MedidaPreventiva = pac.MedidaPreventiva,
-                TipoExame = pac.TipoExame,
-                MaterialUsado = pac.MaterialUsado,
-                DenteTratado = pac.DenteTratado
+                CodigoServico = pro.CodigoServico,
+                Descricao = pro.Descricao,
+                Preco = pro.Preco,
+                TipoServico = pro.TipoServico,
+                Situacao = pro.Situacao,
+                DataInclusao = pro.DataInclusao,
+                DataAlteracao = pro.DataAlteracao,
+                MedidaPreventiva = pro.MedidaPreventiva,
+                TipoExame = pro.TipoExame,
+                MaterialUsado = pro.MaterialUsado,
+                DenteTratado = pro.DenteTratado
             }).ToList();
         }
     }
