@@ -21,6 +21,7 @@ namespace Clinica.Dominio.EF
         public virtual DbSet<Consulta> Consultas { get; set; } = null!;
         public virtual DbSet<Profissao> Profissoes { get; set; } = null!;
         public virtual DbSet<Servico> Servicos { get; set; } = null!;
+        public virtual DbSet<TipoServico> TiposServico { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

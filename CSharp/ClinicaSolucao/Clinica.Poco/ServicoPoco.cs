@@ -20,7 +20,15 @@ namespace Clinica.Poco
 
         public decimal Preco { get; set; }
 
-        public string TipoServico { get; set; } = null!;
+        public string? MaterialUsado { get; set; } = null!;
+
+        public int? DenteTratado { get; set; }
+
+        public string? MedidaPreventiva { get; set; } = null!;
+
+        public string? TipoExame { get; set; } = null!;
+
+        public string? TipoServico { get; set; } = null!;
 
         public bool? Situacao { get; set; }
 
@@ -28,12 +36,10 @@ namespace Clinica.Poco
 
         public DateTime? DataAlteracao { get; set; }
 
-        public string? MedidaPreventiva { get; set; } = null!;
+        public int? DenteExtraido { get; set; }
 
-        public string? TipoExame { get; set; } = null!;
+        public int? DenteCanalPar { get; set; }
 
-        public string? MaterialUsado { get; set; } = null!;
-
-        public int? DenteTratado { get; set; }
+        public int? CodigoTipoServico { get; set; }
     }
 }

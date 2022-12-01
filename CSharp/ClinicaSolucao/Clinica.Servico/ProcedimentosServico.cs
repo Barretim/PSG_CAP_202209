@@ -86,7 +86,10 @@ namespace Clinica.Servico
                 MedidaPreventiva = pro.MedidaPreventiva,
                 TipoExame = pro.TipoExame,
                 MaterialUsado = pro.MaterialUsado,
-                DenteTratado = pro.DenteTratado
+                DenteTratado = pro.DenteTratado,
+                DenteExtraido = pro.DenteExtraido,
+                DenteCanalPar = pro.DenteExtraido,
+                CodigoTipoServico = pro.CodigoTipoServico
             }).ToList();
         }
     }
