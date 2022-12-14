@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExameCAP.Mapping\ExameCAP.Mapping.csproj" />
+    <ProjectReference Include="..\ExameCAP.Poco\ExameCAP.Poco.csproj" />
+    <ProjectReference Include="..\ExameCAP.Repository\ExameCAP.Repository.csproj" />
+    <ProjectReference Include="..\ExameCAP\ExameCAP.Dominio.EF.csproj" />
+  </ItemGroup>
+
+</Project>
