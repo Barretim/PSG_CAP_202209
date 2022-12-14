@@ -1,0 +1,26 @@
+RESPOSTAS DOS EXERCÍCIOS DO ENCONTRO 65
+
+1) VERDADEIRO, pois I,II,III e IV apresentam afirmações corretas.
+
+2) VERDADEIRO, pois usa apenas Herança e não Polimorfismo.
+
+3) VERDADEIRO, pois dentro da classe abstrata deveria ser public abstract e não apenas public.
+
+4) VERDADEIRO, pois classes static não podem ser instanciadas.
+
+5) VERDADEIRO, 
+A- utiliza apenas os conceitos de Herança;
+B- as classes devem ter relações para serem polimorfas;
+C- pois Classe que é uma estrutura composta por Métodos e Objeto são cópias dessa estrutura e só existem em tempo de execução;
+D- pois Classe que é uma entidade que possui um estado e um conjunto definido de operações definidas para funcionar nesse estado;
+E-pois quando uma propriedade não possui Set que ela é considerada somente leitura.
+
+6)VERDADEIRO, pois ela é uma implementação necessária.
+
+7)VERDADEIRA,pois não são informados os valores dentro da classe.
+
+8)VERDADEIRO, pois ambas as classes herdam de BasePessoa e BasePessoa não existe.
+
+9)FALSO, pois Bilhete não possui propriedades, portanto não é possível fazer Update nela.
+
+10) FALSO,  pois em Edit o Update chama chave ao invés de obj.
