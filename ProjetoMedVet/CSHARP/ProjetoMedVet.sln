@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedVet.Mapping", "MedVet.Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedVet.Service", "MedVet.Service\MedVet.Service.csproj", "{036285A8-F402-4318-A0BD-6A6D62D5CE96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedVetApi", "MedVetApi\MedVetApi.csproj", "{D1FFCBA8-409F-489D-8EBA-9F365A1FCD13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedVetApi", "MedVetApi\MedVetApi.csproj", "{D1FFCBA8-409F-489D-8EBA-9F365A1FCD13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedVet.Domain.EF", "MedVet.Domain.EF\MedVet.Domain.EF.csproj", "{F6FBAEC9-8592-46BA-83E7-EC99B7E6AC32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedVet.Domain.EF", "MedVet.Domain.EF\MedVet.Domain.EF.csproj", "{F6FBAEC9-8592-46BA-83E7-EC99B7E6AC32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
