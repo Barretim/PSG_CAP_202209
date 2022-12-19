@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LibTecApi</name>
+    </assembly>
+    <members>
+        <member name="T:LibTecApi.Controllers.AutorController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorController.#ctor(LibTec.Domain.EF.LibTecContext)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retorna todos os registros da tabela Autor
+            </summary>
+            <param name="take"></param>
+            <param name="skip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorController.GetById(System.Int32)">
+            <summary>
+            Retorna o registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorController.Post(LibTec.Poco.AutorPoco)">
+            <summary>
+            Realiza a criação de um novo registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorController.Put(LibTec.Poco.AutorPoco)">
+            <summary>
+            Realiza a alteração de um registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorController.Delete(System.Int32)">
+            <summary>
+            Realiza a exclusão do registro de acordo com o ID.
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LibTecApi.Controllers.AutorPorItemController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorPorItemController.#ctor(LibTec.Domain.EF.LibTecContext)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorPorItemController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retorna todos os registros da tabela AutorPorItem
+            </summary>
+            <param name="take"></param>
+            <param name="skip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorPorItemController.GetByAutor(System.Int32)">
+            <summary>
+            Retorna todos os registros da tabela AutorPorItem buscando por Autor
+            </summary>
+            <param name="autid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorPorItemController.GetByItem(System.Int32)">
+            <summary>
+            Retorna todos os registros da tabela AutorPorItem buscando por Item
+            </summary>
+            <param name="iteid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorPorItemController.GetById(System.Int32)">
+            <summary>
+            Retorna o registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorPorItemController.Post(LibTec.Poco.AutorPorItemPoco)">
+            <summary>
+            Realiza a criação de um novo registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorPorItemController.Put(LibTec.Poco.AutorPorItemPoco)">
+            <summary>
+            Realiza a alteração de um registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.AutorPorItemController.Delete(System.Int32)">
+            <summary>
+            Realiza a exclusão do registro de acordo com o ID.
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LibTecApi.Controllers.ItemController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:LibTecApi.Controllers.ItemController.#ctor(LibTec.Domain.EF.LibTecContext)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:LibTecApi.Controllers.ItemController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retorna todos os registros da tabela Item
+            </summary>
+            <param name="take"></param>
+            <param name="skip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.ItemController.GetByTipoItem(System.Int32)">
+            <summary>
+            Retorna todos os registros da tabela Item buscando por TipoItem
+            </summary>
+            <param name="ateid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.ItemController.GetById(System.Int32)">
+            <summary>
+            Retorna o registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.ItemController.Post(LibTec.Poco.ItemPoco)">
+            <summary>
+            Realiza a criação de um novo registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.ItemController.Put(LibTec.Poco.ItemPoco)">
+            <summary>
+            Realiza a alteração de um registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LibTecApi.Controllers.ItemController.Delete(System.Int32)">
+            <summary>
+            Realiza a exclusão do registro de acordo com o ID.
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
