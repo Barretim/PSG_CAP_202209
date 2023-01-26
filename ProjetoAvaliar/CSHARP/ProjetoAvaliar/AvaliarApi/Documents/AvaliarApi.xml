@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AvaliarApi</name>
+    </assembly>
+    <members>
+        <member name="T:Avaliar.Controllers.CandidatoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Avaliar.Controllers.CandidatoController.#ctor(Avaliar.Domain.EF.AvaliarContext)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:Avaliar.Controllers.CandidatoController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retorna todos os registros da tabela Candidato
+            </summary>
+            <param name="take"></param>
+            <param name="skip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.CandidatoController.GetByPessoa(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="proid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.CandidatoController.GetById(System.Int32)">
+            <summary>
+            Retorna o registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.CandidatoController.Post(Avaliar.Poco.CandidatoPoco)">
+            <summary>
+            Realiza a criação de um novo registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.CandidatoController.Put(Avaliar.Poco.CandidatoPoco)">
+            <summary>
+            Realiza a alteração de um registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.CandidatoController.Delete(System.Int32)">
+            <summary>
+            Realiza a exclusão do registro de acordo com o ID.
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.CandidatoController.GetAllEnvelope(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Realiza uma busca dentro de Candidato e traz de forma Envelopada
+            </summary>
+            <param name="limite"></param>
+            <param name="salto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.CandidatoController.GetByIdEnvelope(System.Int32)">
+            <summary>
+            Realiza uma busca pelo ID dentro de Candidato e traz de forma Envelopada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Avaliar.Controllers.ProfissaoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Avaliar.Controllers.ProfissaoController.#ctor(Avaliar.Domain.EF.AvaliarContext)">
+            <summary>
+            
+            </summary>
+            <param name="contexto"></param>
+        </member>
+        <member name="M:Avaliar.Controllers.ProfissaoController.GetAll(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retorna todos os registros da tabela PessoaProjeto
+            </summary>
+            <param name="take"></param>
+            <param name="skip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.ProfissaoController.GetById(System.Int32)">
+            <summary>
+            Retorna o registro de acordo com a chave primária informada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.ProfissaoController.Post(Avaliar.Poco.ProfissaoPoco)">
+            <summary>
+            Realiza a criação de um novo registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.ProfissaoController.Put(Avaliar.Poco.ProfissaoPoco)">
+            <summary>
+            Realiza a alteração de um registro
+            </summary>
+            <param name="poco"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.ProfissaoController.Delete(System.Int32)">
+            <summary>
+            Realiza a exclusão do registro de acordo com o ID.
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.ProfissaoController.GetAllEnvelope(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Realiza uma busca dentro de Profissao e traz de forma Envelopada
+            </summary>
+            <param name="limite"></param>
+            <param name="salto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.ProfissaoController.GetByIdEnvelope(System.Int32)">
+            <summary>
+            Realiza uma busca pelo ID dentro de Candidato e traz de forma Envelopada
+            </summary>
+            <param name="chave"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
