@@ -1,6 +1,6 @@
 function alterar(){
-    var codigoCandidato = $("#txtCodigoPessoa").val();
-    var codigoProfissao = $("#txtCodigoPessoa").val();
+    var codigoCandidato = $("#txtCodigoCandidato").val();
+    var codigoProfissao = $("#txtCodigoProfissao").val();
     var nome = $("#txtNome").val();
     var sobrenome = $("#txtSobrenome").val();
     var email = $("#txtEmail").val();

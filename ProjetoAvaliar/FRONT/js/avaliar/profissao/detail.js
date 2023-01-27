@@ -76,8 +76,8 @@ function carregarDetalhe(){
         }
         else{
             console.log(data);
-            $("#txtCodigoCandidato").val(data.codigoPessoa);
-            $("#txtDescricao").val(data.codigoPessoa);
+            $("#txtCodigoProfissao").val(data.codigoProfissao);
+            $("#txtDescricao").val(data.descricao);
             $("#txtAtivo").val(data.ativo);
             $("#txtDataInclusao").val(data.dataInclusao.substring(0,10));
             $("#chbAtivo").attr('checked', (stringToBoolean(data.ativo)));

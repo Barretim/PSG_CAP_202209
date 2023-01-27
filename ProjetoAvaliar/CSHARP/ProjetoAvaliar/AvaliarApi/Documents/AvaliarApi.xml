@@ -60,17 +60,26 @@
         </member>
         <member name="M:Avaliar.Controllers.CandidatoController.GetAllEnvelope(System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
-            Realiza uma busca dentro de Candidato e traz de forma Envelopada
+            Retorna o envelopamento dos registros.
             </summary>
+            <param name="limite">Quantos registros você deseja obter.</param>
+            <param name="salto">Quantos registros você deseja pular.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Avaliar.Controllers.CandidatoController.GetPorProfissaoEnvelope(System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Retorna o envelopamento dos registros por ProfissaoID.
+            </summary>
+            <param name="procod"></param>
             <param name="limite"></param>
             <param name="salto"></param>
             <returns></returns>
         </member>
         <member name="M:Avaliar.Controllers.CandidatoController.GetByIdEnvelope(System.Int32)">
             <summary>
-            Realiza uma busca pelo ID dentro de Candidato e traz de forma Envelopada
+            Retorna o registro de acordo com o código da chave primária informada.
             </summary>
-            <param name="chave"></param>
+            <param name="chave">Código da chave primária do registro</param>
             <returns></returns>
         </member>
         <member name="T:Avaliar.Controllers.ProfissaoController">

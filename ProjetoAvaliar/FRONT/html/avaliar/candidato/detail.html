@@ -22,7 +22,7 @@
 <body class="bg-secondary">
     <div class="container pt-4 my-5 card text-black ">
         <div class="container card text-black ">
-            <h3 class="mb-4 text-center my-4 bordered">Detalhes</h3>
+            <h3 class="mb-4 text-center my-4 bordered">Detalhes do registro</h3>
         </div>
                 
         <form>
@@ -30,44 +30,46 @@
             <div class="form-row mt-4">
                 <div class="form-group col-md-6">
                     <label class="mr-md-2" for="txtCodigoCandidato">CodigoCandidato</label>
-                    <input class="form-control" type="text" id="txtCodigoCandidato" name="txtCodigoCandidato" disabled/>
+                    <input class="form-control" type="text" id="txtCodigoCandidato" name="txtCodigoCandidato"/>
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label class="mr-md-2" for="txtCodigoProfissao">CodigoProfissao</label>
-                    <input class="form-control" type="text" id="txtCodigoProfissao" name="txtCodigoProfissao" disabled/>
+                    <label class="mr-md-2" for="txtCodigoProfissao" id="lblCodigoProfissao">CodigoProfissao</label>
+                    <input class="form-control" type="text" id="txtCodigoProfissao" name="txtCodigoProfissao"/>
                 </div>
+            </div>            
 
+            <div class="form-row">          
                 <div class="form-group col-md-6">
                     <label class="mr-md-2" for="txtNome">Nome</label>
                     <input class="form-control" type="text" id="txtNome" name="txtNome"/>
-                </div>
-
+                </div> 
+                
                 <div class="form-group col-md-6">
                     <label class="mr-md-2" for="txtSobrenome">Sobrenome</label>
                     <input class="form-control" type="text" id="txtSobrenome" name="txtSobrenome"/>
+                </div> 
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label class="mr-md-2" for="txtEmail">Email</label>
+                    <input class="form-control" type="text" id="txtEmail" name="txtEmail"/>
                 </div>
 
-                <div class="form-group col-md-12">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" placeholder="Enter email" id="email">
-                  </div>
-            </div>                                    
-
-            <div class="form-row" id="data">                                
-                <div class="form-group col-md-6">
-                    <label class="mr-md-2" for="txtDataInclusao" id="lblTextoDataInclusao">DataInclusao</label>
-                    <input class="form-control" type="text" id="txtDataInclusao" name="txtDataInclusao" disabled/>
+                <div class="form-group col-md-4" id="divInclusaoData">
+                    <label class="mr-md-2" for="txtDataInclusao">DataInclusao</label>
+                    <input class="form-control" type="text" id="txtDataInclusao" name="txtDataInclusao"/>
                 </div>
             </div>
-                       
-           <div class="form-row">
+           
+            <div class="form-row">
                 <div class="form-group col-md-2">
                     <div class="container card text-black">  
                         <div class="custom-control custom-checkbox" id="divCheckBox">  
-                            <input type="checkbox" id="chbSituacao" name="chbSituacao" class="custom-control-input">  
-                            <h4> Situacao </h4>  
-                            <label class="custom-control-label" for="chbSituacao"> Ativo </label>
+                            <input type="checkbox" id="chbAtivo" name="chbAtivo" class="custom-control-input">  
+                            <h4> Ativo </h4>  
+                            <label class="custom-control-label" for="chbAtivo"> True </label>  
                         </div>  
                     </div>  
                 </div>

@@ -8,7 +8,7 @@ $(function(){
         carregar(caminhoEnvelope);
     }
     else{
-        caminhoEnvelope = caminho + "/envelope" + "?limite=" + 10 + "&salto=" + salto;
+        caminhoEnvelope = caminho + "/envelope" + "?limite=" + 5 + "&salto=" + salto;
         carregar(caminhoEnvelope);
     }
   });
@@ -50,7 +50,7 @@ function carregar(caminhoEnvelope){
             linha += "<tr>";
             linha +=  "<td class='table-active text-center'>";
             linha +=    "<button id='btnExibir' class='border-light border-0' onclick='exibirAtual("+ codigoProfissao +");'>";
-            linha +=      "<img src='/img/icone.png''width=35 height=35'>";
+            linha +=      "<img src='/img/att.png''width=35 height=35'>";
             linha +=    "</button>";
             linha +=  "</td>";
             linha += "<td class='table-active text-center'>" + codigoProfissao + "</td>";

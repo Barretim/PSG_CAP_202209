@@ -10,7 +10,7 @@ $(function(){
       carregar(caminhoEnvelope);
     }
     else{
-      limite = 10;
+      limite = 1;
       caminhoEnvelope = caminho + "/envelope/PorProfissao/" + codigoProfissao + "?limite=" + limite + "&salto=" + salto;
       carregar(caminhoEnvelope);
     }
@@ -60,7 +60,8 @@ function carregar(caminhoEnvelope){
           console.log(candidato);
 
             var codigoCandidato = candidato.codigoCandidato;
-            var descricao = candidato.descricao;
+            var nome = candidato.nome;
+            var sobrenome = candidato.sobrenome;
             var hasPrev = data.paginacao.hasPrev;
             var hasNext = data.paginacao.hasNext;
             var pageNumber = data.paginacao.pageNumber;   
@@ -69,11 +70,12 @@ function carregar(caminhoEnvelope){
             linha += "<tr>";
             linha +=  "<td class='table-active text-center'>";
             linha +=    "<button id='btnExibir' class='border-light border-0' onclick='exibirAtual("+ codigoCandidato +");'>";
-            linha +=      "<img src='/img/icone.png''width=35 height=35'>";
+            linha +=      "<img src='/img/att.png''width=35 height=35'>";
             linha +=    "</button>";
             linha +=  "</td>";
             linha += "<td class='table-active text-center'>" + codigoCandidato + "</td>";
-            linha += "<td class='table-active text-center'>" + descricao + "</td>";
+            linha += "<td class='table-active text-center'>" + nome + "</td>";
+            linha += "<td class='table-active text-center'>" + sobrenome + "</td>";
             linha += "<td class='table-active text-center'>";
             linha +=    "<button id='btnAlterar' class='btn-warning' onclick='alterarAtual("+ codigoCandidato +");'>Alterar</button>";
             linha +=    "</td>";

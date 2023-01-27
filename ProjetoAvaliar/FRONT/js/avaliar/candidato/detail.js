@@ -79,8 +79,8 @@ function carregarDetalhe(){
         }
         else{
             console.log(data);
-            $("#txtCodigoCandidato").val(data.codigoPessoa);
-            $("#txtCodigoProfissao").val(data.codigoPessoa);
+            $("#txtCodigoCandidato").val(data.codigoCandidato);
+            $("#txtCodigoProfissao").val(data.codigoProfissao);
             $("#txtNome").val(data.nome)
             $("#txtSobrenome").val(data.sobrenome);
             $("#txtEmail").val(data.email);
