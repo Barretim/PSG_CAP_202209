@@ -1,48 +1,51 @@
 var caminhoEnvelope = '';
 $(function(){
-  carregarPessoa();
+  carregarProfissao()
   $("#ddlProfissao").change(function(){
-      var codigoProfissao = $(this).children("option:selected").val();
-      var limite = $("#ddlTakeSkip").children("option:selected").val();
-      var salto = 0;
-      if (limite != 0){
-        caminhoEnvelope = caminho + "/envelope/PorProfissao/" + codigoProfissao + "?limite=" + limite + "&salto=" + salto;
-        carregar(caminhoEnvelope);
-      }
-      else{
-        limite = 100;
-        caminhoEnvelope = caminho + "/envelope/PorProfissao/" + codigoProfissao + "?limite=" + limite + "&salto=" + salto;
-        carregar(caminhoEnvelope);
-      }
-  });
-
-  $("#ddlTakeSkip").change(function(){
-    var limite = $(this).children("option:selected").val();
-    var codigoProfissao = $("#ddlProfissao").children("option:selected").val();
+    var codigoProfissao = $(this).children("option:selected").val();
+    var limite = $("#ddlTakeSkip").children("option:selected").val();
     var salto = 0;
-    if (codigoProfissao != 0){
+    if (limite != 0){
       caminhoEnvelope = caminho + "/envelope/PorProfissao/" + codigoProfissao + "?limite=" + limite + "&salto=" + salto;
       carregar(caminhoEnvelope);
     }
     else{
-      alert("Informe uma Profissao para pesquisa.")
+      limite = 10;
+      caminhoEnvelope = caminho + "/envelope/PorProfissao/" + codigoProfissao + "?limite=" + limite + "&salto=" + salto;
+      carregar(caminhoEnvelope);
+    }
+});
+  
+  $("#ddlTakeSkip").change(function(){
+    var limite = $(this).children("option:selected").val();
+    var salto = 0;
+    if (limite != 0){
+        caminhoEnvelope = caminho + "/envelope/PorProfissao/" +codigoProfissao + "?limite=" + limite + "&salto=" + salto;
+        carregar(caminhoEnvelope);
     }
   });
 });
 
 function carregar(caminhoEnvelope){
-    $.ajax({
-      url: caminhoEnvelope,
-      type: "get",
-      dataType: "json",
-      contentType: "application/json",
-      data: null,
-      async: false,
-      success: function(data, status, xhr){
+    $.ajax({        
+        url: caminhoEnvelope,
+        type: "get",
+        dataType: "json",
+        contentType: "application/json",
+        data: null,
+        async: false,
+        success: function(data, status, xhr){
         var codigoStatus = data.status.codigo;
         var mensagemStatus = data.status.mensagem;
                 
         if (codigoStatus == 404){
+          $("#liPagina").hide();
+          $("#liPosterior").hide();          
+          alert(mensagemStatus);
+          return;
+        }
+
+        if (codigoStatus == 400){
           $("#liPagina").hide();
           $("#liPosterior").hide();          
           alert(mensagemStatus);
@@ -57,10 +60,7 @@ function carregar(caminhoEnvelope){
           console.log(candidato);
 
             var codigoCandidato = candidato.codigoCandidato;
-            var codigoProfissao = candidato.codigoProfissao;
-            var nome = candidato.nome;
-            var sobrenome = candidato.sobrenome;
-            var email = candidato.email;
+            var descricao = candidato.descricao;
             var hasPrev = data.paginacao.hasPrev;
             var hasNext = data.paginacao.hasNext;
             var pageNumber = data.paginacao.pageNumber;   
@@ -69,14 +69,11 @@ function carregar(caminhoEnvelope){
             linha += "<tr>";
             linha +=  "<td class='table-active text-center'>";
             linha +=    "<button id='btnExibir' class='border-light border-0' onclick='exibirAtual("+ codigoCandidato +");'>";
-            linha +=      "<img src='/img/att.png''width=35 height=35'>";
+            linha +=      "<img src='/img/icone.png''width=35 height=35'>";
             linha +=    "</button>";
             linha +=  "</td>";
             linha += "<td class='table-active text-center'>" + codigoCandidato + "</td>";
-            linha += "<td class='table-active text-center'>" + codigoProfissao + "</td>";
-            linha += "<td class='table-active text-center'>" + nome + "</td>";
-            linha += "<td class='table-active text-center'>" + sobrenome + "</td>";
-            linha += "<td class='table-active text-center'>" + email + "</td>";
+            linha += "<td class='table-active text-center'>" + descricao + "</td>";
             linha += "<td class='table-active text-center'>";
             linha +=    "<button id='btnAlterar' class='btn-warning' onclick='alterarAtual("+ codigoCandidato +");'>Alterar</button>";
             linha +=    "</td>";
@@ -85,12 +82,12 @@ function carregar(caminhoEnvelope){
             linha +=    "</td>";
             linha += "</tr>"; 
             $("#tblDados tbody").append(linha);
-          }
-          carregarLinkPaginacao(pageNumber, hasPrev, hasNext);
+        }
+            carregarLinkPaginacao(pageNumber, hasPrev, hasNext);
         },
-        error: function(xhr, status, errorThrown){
-          alert("Erro ao obter os dados. " + status);
-          return;
+        error: function(xhr, status, errorThrown){                       
+            alert("Erro ao obter os dados. " + status);
+            return;                        
         }
       });
 }
@@ -119,21 +116,22 @@ function excluirAtual(codigo){
   window.location.href = "detail.html";
 }
 
-var candidatos = [];
+var produtos = [];
 
-function carregarCandidato(){
-  var caminhoCandidato  = servidor + "/" + "TipoCandidato";
-  $.get(caminhoCandidato, function(data){
+function carregarProfissao(){
+  var caminhoProfissao  = servidor + "/" + "Profissao";
+  $.get(caminhoProfissao, function(data){
 
         for (let index = 0; index < data.length; index++) {
-          const candidato = data[index];
+          const profissao = data[index];
 
           $("#ddlProfissao").append(
-            $('<option></option>').val(candidato.codigoTipoProfissao).html(candidato.descricao)
+            $('<option></option>').val(profissao.codigoProfissao).html(profissao.descricao)
         );
         }     
   });
 }
+
 
 function carregarLinkPaginacao(numeroPagina, anterior, posterior){
   $("#navPaginacao ul").empty();
