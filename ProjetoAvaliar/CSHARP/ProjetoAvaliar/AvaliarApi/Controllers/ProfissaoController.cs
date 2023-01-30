@@ -28,7 +28,7 @@ namespace Avaliar.Controllers
         }
 
         /// <summary>
-        /// Retorna todos os registros da tabela PessoaProjeto
+        /// Retorna todos os registros da tabela Profissao
         /// </summary>
         /// <param name="take"></param>
         /// <param name="skip"></param>
